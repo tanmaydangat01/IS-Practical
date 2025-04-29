@@ -1,13 +1,9 @@
-
-## Code:
-
 import datetime
 
 def caesar_cipher(text, shift, encrypt=True):
     result = ""
     if not encrypt:
         shift = -shift
-
     for char in text:
         if char.isalpha():
             shift_base = ord('A') if char.isupper() else ord('a')
