@@ -1,3 +1,11 @@
+# Practical 2: Rail-Fence-Cipher
+
+## Overview:
+The Rail Fence Cipher is a transposition cipher that arranges the plaintext in a zigzag pattern and reads it row-wise to produce the ciphertext. This practical demonstrates encryption and decryption using a specified depth.
+
+## Code:
+
+```python
 import datetime
 
 def rail_fence_encrypt(text, depth):
