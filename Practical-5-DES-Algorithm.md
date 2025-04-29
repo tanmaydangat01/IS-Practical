@@ -1,3 +1,11 @@
+# Practical 5: DES-Algorithm
+
+## Overview:
+The Data Encryption Standard (DES) is a symmetric-key block cipher that encrypts data in 64-bit blocks using a 56-bit key. This practical demonstrates a simplified version of DES encryption and decryption.
+
+## Code:
+
+```python
 import binascii
 
 # Initial Permutation Table
