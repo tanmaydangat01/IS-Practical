@@ -15,8 +15,6 @@ def caesar_cipher(text, shift, encrypt=True):
         else:
             result += char
     return result
-
-# User input
 plaintext = input("Enter text to encrypt or decrypt: ")
 shift_value = int(input("Enter shift value (1-25): "))
 operation = input("Enter e for encrypt and d for decrypt: ").lower()
