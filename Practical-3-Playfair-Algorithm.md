@@ -1,3 +1,11 @@
+# Practical 3: Playfair-Algorithm
+
+## Overview:
+The Playfair Cipher is a digraph substitution cipher that encrypts pairs of letters (digraphs) using a 5x5 matrix generated from a secret key. This practical demonstrates encryption and decryption using the Playfair algorithm.
+
+## Code:
+
+```python
 def create_playfair_matrix(key):
     # Create a 5x5 matrix with unique characters from the key and the alphabet
     alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ"  # J is excluded
