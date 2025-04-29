@@ -1,54 +1,50 @@
-IS-Practical: Caesar Cipher Implementation
+# Practical 1: Caesar Cipher
 
-Overview
+## Overview:
+The Caesar Cipher is a substitution cipher that shifts each letter in the plaintext by a fixed number of positions down or up the alphabet. This practical demonstrates basic encryption and decryption using a user-defined shift key.
 
-This repository contains practical implementations of various cryptographic algorithms. This README.md focuses on the Caesar Cipher, a substitution cipher that shifts each letter in the plaintext by a fixed number of positions in the alphabet. The code allows both encryption and decryption with a user-defined shift value.
+## Code:
 
-Practical 1: Caesar Cipher
-
-Description
-
-The Caesar Cipher shifts each alphabetic character by a specified number of positions while preserving case (uppercase/lowercase) and non-alphabetic characters. This implementation:
-
-
-
-
-
-Takes user input for plaintext, shift value, and operation (encrypt/decrypt).
-
-
-
-Displays the result and execution timestamp.
-
-Code
-
-Below is the Python code for the Caesar Cipher. You can copy it directly and run it in your Python environment.
-
-import datetime
-
-def caesar_cipher(text, shift, encrypt=True):
-    result = ""
-    if not encrypt:
-        shift = -shift
-    for char in text:
-        if char.isalpha():
-            shift_base = ord('A') if char.isupper() else ord('a')
-            result += chr((ord(char) - shift_base + shift) % 26 + shift_base)
+```python
+def caesar_cipher_enc(txt, shift):
+    alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
+    alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    encrypted_text = ""
+    for char in txt:
+        if char.islower():
+            position = alphabet_lower.index(char)
+            new_pos = (position + shift) % 26
+            encrypted_text += alphabet_lower[new_pos]
+        elif char.isupper():
+            position = alphabet_upper.index(char)
+            new_pos = (position + shift) % 26
+            encrypted_text += alphabet_upper[new_pos]
         else:
-            result += char
-    return result
+            encrypted_text += char
+    return encrypted_text
 
-plaintext = input("Enter text to encrypt or decrypt: ")
-shift_value = int(input("Enter shift value (1-25): "))
-operation = input("Enter e for encrypt and d for decrypt: ").lower()
+def caesar_cipher_dec(txt, shift):
+    alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
+    alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    decrypted_text = ""
+    for char in txt:
+        if char.islower():
+            position = alphabet_lower.index(char)
+            new_pos = (position - shift) % 26
+            decrypted_text += alphabet_lower[new_pos]
+        elif char.isupper():
+            position = alphabet_upper.index(char)
+            new_pos = (position - shift) % 26
+            decrypted_text += alphabet_upper[new_pos]
+        else:
+            decrypted_text += char
+    return decrypted_text
 
-if operation == 'e':
-    encrypt = True
-    result = caesar_cipher(plaintext, shift_value, encrypt)
-    print("Encrypted Text:", result)
-else:
-    encrypt = False
-    result = caesar_cipher(plaintext, shift_value, encrypt)
-    print("Decrypted Text:", result)
-
-print("Execution Date & Time:", datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+# Example usage
+text = "Hello, World!"
+shift = 3
+encrypted = caesar_cipher_enc(text, shift)
+decrypted = caesar_cipher_dec(encrypted, shift)
+print("Original:", text)
+print("Encrypted:", encrypted)
+print("Decrypted:", decrypted)
