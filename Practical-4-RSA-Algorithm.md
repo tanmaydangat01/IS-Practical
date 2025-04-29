@@ -1,3 +1,11 @@
+# Practical 4: RSA-Algorithm
+
+## Overview:
+The RSA algorithm is an asymmetric cryptographic algorithm that uses a pair of keys (public and private) for encryption and decryption. This practical demonstrates key generation, encryption, and decryption using RSA
+
+## Code:
+
+```python
 import random
 
 def gen_keys():
